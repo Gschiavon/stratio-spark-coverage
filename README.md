@@ -1,0 +1,1 @@
+# stratio-spark-coverage
