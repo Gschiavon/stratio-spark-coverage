@@ -29,40 +29,21 @@
         <maven>${maven.version}</maven>
     </prerequisites>
     <modules>
-        <module>tpcds</module>
-        <module>streaming-soak</module>
-        <module>batch-soak</module>
+        <module>elastic</module>
+        <module>kafka</module>
+        <module>postgres</module>
+        <module>hdfs</module>
     </modules>
     <dependencies>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.11</artifactId>
-            <version>${spark.version}</version>
+            <version>2.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>2.1.0</version>
         </dependency>
     </dependencies>
-    <build>
-        <sourceDirectory>src/main/scala</sourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.scala-tools</groupId>
-                <artifactId>maven-scala-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <scalaVersion>${scala.version}</scalaVersion>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
