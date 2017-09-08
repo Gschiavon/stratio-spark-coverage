@@ -16,7 +16,7 @@ object Main {
 
     import spark.implicits._
     val df = spark.sparkContext.parallelize(List(1,2,3,4,5,6,7,8,9,10)).toDF("numbers")
-    PostgresOutput(spark, args(1), args(2), args(3), args(4), None).saveWithoutKeyAndTrust(df)
+    PostgresOutput(spark, args(0), args(1), args(2), args(3)).saveWithoutKeyAndTrust(df)
 
   }
 }
