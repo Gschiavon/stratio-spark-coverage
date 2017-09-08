@@ -5,7 +5,7 @@ import org.apache.spark.sql.SaveMode._
 
 
 case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
-                          user: String, password: String, rootCAPath: Option[String] = None) {
+                          user: String, password: String) {
 
   def saveWithoutKeyAndTrust(dataFrame: DataFrame): Unit = {
 
@@ -19,7 +19,7 @@ case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
     println(s"PSQL CHAIN: $value")
 
     spark.conf.getAll.filter{
-      case (key, value) => key.contains("ssl")
+      case (key, _) => key.contains("ssl")
     }.foreach(println)
 
     dataFrame.write
