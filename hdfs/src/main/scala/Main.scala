@@ -11,19 +11,21 @@ object Main {
 
     val spark = SparkSession
       .builder()
-      .appName("spark-hdfs")
       .getOrCreate()
 
     import spark.implicits._
     val hdfsPath = args(0)
     val hdfs = HDFSUtils(spark, hdfsPath)
-    val df = spark.sparkContext.parallelize(List(1,2,3,4,5,6,7,8,9,10)).toDF()
+    val numbers = List(1,2,3,4,5,6,7,8,9,10)
+    val df = spark.sparkContext.parallelize(numbers).toDF()
 
     println("Writing to HDFS a List of 10 numbers")
     val pathToRead = hdfs.saveToHDFS(df)
 
-    println("Reading from HDFS HDFS")
-    spark.sparkContext.textFile(pathToRead).collect.foreach(println)
+    println("Reading from HDFS")
+    val check = spark.sparkContext.textFile(pathToRead).collect.toList.sameElements(numbers)
+
+    println(s"Checking if elements read are the same that elements written: $check")
   }
 }
 

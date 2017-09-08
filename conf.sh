@@ -14,14 +14,20 @@ MESOS_SECRET="DrE6o5r67qnf38H9K5KgGhoeRHqwU6sVNBVStHqw"
 ##POSTGRES CONF VARS
 PG_HOST="pg_0001-postgrestls.service.paas.labs.stratio.com"
 PG_PORT="5432"
-PG_JAR_URL="http://172.19.1.209:8000/postgres-0.1.0.jar"
+PG_JAR_URL="http://HOST:PORT/postgres-0.1.0.jar"
 
 ##ELASTIC CONF VARS
 ES_HOST="coordinator-0-node.elasticsearchstratio.mesos"
 ES_PORT="31504"
-ES_JAR_URL="http://172.19.1.209:8000/elastic-0.1.0.jar"
+ES_JAR_URL="http://HOST:PORT/elastic-0.1.0.jar"
 
 ##KAFKA CONF VARS
 KAFKA_BROKER_LIST="gosec1.node.paas.labs.stratio.com:9092"
 TOPIC="audit"
-KAFKA_JAR_URL="http://172.19.1.209:8000/kafka-0.1.0.jar"
+KAFKA_JAR_URL="http://HOST:PORT/kafka-0.1.0.jar"
+
+##HDFS CONF VARS
+HDFS_PATH="/spark/test"
+HDFS_CONF_URI="http://HOST:PORT"
+HDFS_JAR_URL="http://HOST:PORT/spark-hdfs.jar"
+KERBEROS_VAULT_PATH="/v1/userland/kerberos/crossdata-1"
