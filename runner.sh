@@ -27,6 +27,10 @@ echo "Running kafka acceptance job"
 bash kafka/json-composer.sh
 curl -k -XPOST -H "Cookie:${COOKIE}" -d @kafka/body.json $SPARK_DISP_URL
 
+echo "Running hdfs acceptance job"
+bash hdfs/json-composer.sh
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @hdfs/body.json $SPARK_DISP_URL
+
 sleep 30
 
 rm -f */body.json
