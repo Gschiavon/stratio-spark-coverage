@@ -31,3 +31,8 @@ HDFS_PATH="/spark/test"
 HDFS_CONF_URI="http://HOST:PORT"
 HDFS_JAR_URL="http://HOST:PORT/spark-hdfs.jar"
 KERBEROS_VAULT_PATH="/v1/userland/kerberos/crossdata-1"
+
+
+##STRUCTURED CONF VARS
+STRUCTURED_TOPIC="test"
+STRUCTURED_JAR_URL="http://HOST:PORT/kafka-0.1.0.jar"
