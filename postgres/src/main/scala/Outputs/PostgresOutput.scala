@@ -7,9 +7,9 @@ import org.apache.spark.sql.SaveMode._
 case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
                           user: String, password: String) {
 
-  val sslCert = spark.conf.get("spark.ssl.datastore.certPem.path")
-  val sslKey = spark.conf.get("spark.ssl.datastore.keyPKCS8.path")
-  val sslRootCert = spark.conf.get("spark.ssl.datastore.caPem.path")
+  val sslCert = s"${sys.env("SPARK_SSL_CERT_PATH")}/cert.crt"
+  val sslKey = s"${sys.env("SPARK_SSL_CERT_PATH")}/key.pkcs8"
+  val sslRootCert = s"${sys.env("SPARK_SSL_CERT_PATH")}/caroot.crt"
 
   def saveWithoutKeyAndTrust(dataFrame: DataFrame): Unit = {
     val value = s"jdbc:postgresql://${url}?ssl=true&sslmode=verify-full&sslcert=$sslCert&sslrootcert=$sslRootCert&sslkey=$sslKey"
@@ -21,6 +21,7 @@ case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
 
     println("WRITING")
     dataFrame.write
+       .mode(Append)
       .format("jdbc")
       .option("url", value)
       .option("dbtable", tableName)
@@ -41,8 +42,4 @@ case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
       .option("driver", "org.postgresql.Driver")
       .load()
   }
-
-
-
-
 }
