@@ -6,7 +6,7 @@ object Main {
 
   def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().setAppName("test")
+    val conf = new SparkConf().setAppName("hdfs-AT-job")
     val sc = new SparkContext(conf)
 
     val spark = SparkSession
