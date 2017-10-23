@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.stratio.spark</groupId>
-    <artifactId>postgres</artifactId>
+    <artifactId>structured-streaming</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <dependencies>
