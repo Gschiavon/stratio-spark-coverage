@@ -23,7 +23,7 @@ cat << EOF > hdfs/body.json
 "spark.mesos.driverEnv.SPARK_SECURITY_HDFS_ENABLE" : "true",
 "spark.mesos.driverEnv.SPARK_SECURITY_HDFS_CONF_URI" : "$HDFS_CONF_URI",
 "spark.mesos.driverEnv.SPARK_SECURITY_KERBEROS_ENABLE" : "true",
-"spark.mesos.driverEnv.SPARK_SECURITY_KERBEROS_VAULT_PATH" : "$KERBEROS_VAULT_PATH"
+"spark.mesos.driverEnv.SPARK_SECURITY_KERBEROS_VAULT_PATH" : "$KERBEROS_VAULT_PATH",
 "spark.mesos.executor.docker.image" : "$SPARK_IMAGE",
 "spark.submit.deployMode" : "cluster",
 "spark.mesos.principal" : "$MESOS_PRINCIPAL",
@@ -35,6 +35,10 @@ cat << EOF > hdfs/body.json
 "spark.mesos.driverEnv.VAULT_PROTOCOL" : "https",
 "spark.mesos.driverEnv.VAULT_HOST" : "vault.service.paas.labs.stratio.com",
 "spark.mesos.driverEnv.VAULT_PORT" :  "8200",
+"spark.executorEnv.VAULT_PROTOCOL" : "https",
+"spark.executorEnv.VAULT_HOST" : "vault.service.paas.labs.stratio.com",
+"spark.executorEnv.VAULT_PORT" :  "8200",
+
 "spark.mesos.executor.home" : "/opt/spark/dist",
 "spark.executor.cores" : "1",
 "spark.cores.max" : "1"

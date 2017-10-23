@@ -15,7 +15,6 @@ object Main {
     val elasticOptions = extractElasticSecurityOption(args(0), args(1), sparkConf)
 
     val spark = SparkSession.builder().config(sparkConf).getOrCreate()
-    spark.sparkContext.setLogLevel("DEBUG")
 
     import spark.implicits._
 

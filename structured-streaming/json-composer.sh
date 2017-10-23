@@ -13,7 +13,6 @@ cat << EOF > postgres/body.json
 },
 "mainClass": "com.stratio.Main",
 "sparkProperties": {
-"spark.mesos.driverEnv.APP_NAME": "AT-postgres",
 "spark.jars": "$STRUCTURED_JAR_URL",
 "spark.app.name" : "AT-postgres",
 "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/etc/ssl/certs/java/cacerts:ro",
