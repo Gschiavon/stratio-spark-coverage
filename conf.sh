@@ -18,8 +18,8 @@ PG_HOST="pg_0001-postgrestls.service.paas.labs.stratio.com"
 PG_PORT="5432"
 PG_JAR_URL="http://$HOST_PORT/postgres-0.1.0-SNAPSHOT-allinone.jar"
 
-#ELASTIC CONF VARS
-ES_HOST="coordinator-0-node.elasticsearchstratio-2.mesos"
+ELASTIC CONF VARS
+ES_HOST="coordinator-0-node.elasticsearchstratio-4.mesos"
 ES_PORT="31504"
 ES_JAR_URL="http://$HOST_PORT/elastic-0.1.0-SNAPSHOT-allinone.jar"
 
@@ -36,4 +36,4 @@ KERBEROS_VAULT_PATH="/v1/userland/kerberos/crossdata-1"
 
 ##STRUCTURED CONF VARS
 STRUCTURED_TOPIC="test"
-STRUCTURED_JAR_URL="http://$HOST_PORT/kafka-0.1.0.jar"
+STRUCTURED_JAR_URL="http://$HOST_PORT/structured-streaming-0.1.0-SNAPSHOT-allinone.jar"

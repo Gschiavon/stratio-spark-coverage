@@ -1,7 +1,6 @@
 package com.stratio
 
 
-import Outputs.PostgresOutput
 import org.apache.spark._
 import org.apache.spark.sql.SparkSession
 

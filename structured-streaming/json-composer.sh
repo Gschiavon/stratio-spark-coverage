@@ -2,7 +2,7 @@
 
 source conf.sh
 
-cat << EOF > postgres/body.json
+cat << EOF > structured-streaming/body.json
 {
 "action": "CreateSubmissionRequest",
 "appArgs": ["$KAFKA_BROKER_LIST", "$STRUCTURED_TOPIC"],
@@ -14,8 +14,8 @@ cat << EOF > postgres/body.json
 "mainClass": "com.stratio.Main",
 "sparkProperties": {
 "spark.jars": "$STRUCTURED_JAR_URL",
-"spark.app.name" : "AT-postgres",
-"spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/etc/ssl/certs/java/cacerts:ro",
+"spark.app.name" : "AT-kafka-structured",
+"spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro",
 "spark.driver.supervise": "false",
 "spark.secret.vault.role": "$VAULT_ROLE",
 "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_ENABLE" : "true",
@@ -37,10 +37,10 @@ cat << EOF > postgres/body.json
 "spark.secret.vault.protocol": "https",
 "spark.secret.vault.port": "8200",
 "spark.mesos.driverEnv.VAULT_PROTOCOL": "https",
-"spark.mesos.driverEnv.VAULT_HOST": "vault.service.paas.labs.stratio.com",
+"spark.mesos.driverEnv.VAULT_HOSTS": "vault.service.paas.labs.stratio.com",
 "spark.mesos.driverEnv.VAULT_PORT": "8200",
 "spark.executorEnv.VAULT_PROTOCOL": "https",
-"spark.executorEnv.VAULT_HOST": "vault.service.paas.labs.stratio.com",
+"spark.executorEnv.VAULT_HOSTS": "vault.service.paas.labs.stratio.com",
 "spark.executorEnv.VAULT_PORT": "8200",
 "spark.mesos.executor.home": "/opt/spark/dist",
 "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_TRUSTSTORE_PATH": "/v1/ca-trust/certificates/ca",

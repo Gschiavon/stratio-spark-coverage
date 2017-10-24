@@ -21,6 +21,10 @@ echo "Running postgres acceptance job"
 bash postgres/json-composer.sh
 curl -k -XPOST -H "Cookie:${COOKIE}" -d @postgres/body.json $SPARK_DISP_URL
 
+echo "Running structured streaming acceptance job"
+bash structured-streaming/json-composer.sh
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @structured-streaming/body.json $SPARK_DISP_URL
+
 echo "Running elastic acceptance job"
 bash elastic/json-composer.sh
 curl -k -XPOST -H "Cookie:${COOKIE}" -d @elastic/body.json $SPARK_DISP_URL
@@ -40,3 +44,5 @@ rm -f */body.json
 kill %1 > /dev/null
 
 rm -rf server
+
+mvn clean

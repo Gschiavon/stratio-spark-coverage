@@ -40,7 +40,7 @@ object Main {
   }
   def extractKafkaSecurityOption(kafkaParams: Map[String, AnyRef],
                                  sparkConf: SparkConf): Map[String, AnyRef] = {
-    val prefixKafka = "spark.ssl.kafka."
+    val prefixKafka = "spark.ssl.datastore."
     if (sparkConf.getOption(prefixKafka + "enabled").isDefined && sparkConf.get(prefixKafka + "enabled") == "true") {
       val configKafka = sparkConf.getAllWithPrefix(prefixKafka).toMap
       kafkaParams ++ Map[String, String]("security.protocol" -> "SSL",
