@@ -36,3 +36,8 @@ KERBEROS_VAULT_PATH="/v1/userland/kerberos/crossdata-1"
 ##STRUCTURED CONF VARS
 STRUCTURED_TOPIC="test"
 STRUCTURED_JAR_URL="http://$HOST_PORT/structured-streaming-$TEST_ARTIFACTS_VERSION.jar"
+
+##STREAMING HDFS DYNAMIC ALLOCATION
+$HDFS_PATH_FILE="hdfs:///tmp/datio_1GB.csv"
+$HDFS_STREAMING_JAR_URL="http://$HOST_PORT/streaming-hdfs-dynamic-$TEST_ARTIFACTS_VERSION.jar"
+

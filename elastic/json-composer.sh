@@ -16,7 +16,7 @@ cat << EOF > elastic/body.json
         "spark.jars": "$ES_JAR_URL",
         "spark.app.name": "AT-elastic",
         "spark.mesos.executor.docker.image": "$SPARK_IMAGE",
-        "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro",
+        "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro,/etc/resolv.conf:/etc/resolv.conf:ro",
         "spark.driver.supervise": "false",
         "spark.secret.vault.role": "$VAULT_ROLE",
         "spark.mesos.executor.docker.network.name": "$EXEC_CALICO_NETWORK",

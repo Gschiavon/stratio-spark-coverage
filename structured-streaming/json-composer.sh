@@ -15,7 +15,7 @@ cat << EOF > structured-streaming/body.json
 "sparkProperties": {
 "spark.jars": "$STRUCTURED_JAR_URL",
 "spark.app.name" : "AT-kafka-structured",
-"spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro",
+"spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro,/etc/resolv.conf:/etc/resolv.conf:ro",
 "spark.driver.supervise": "false",
 "spark.secret.vault.role": "$VAULT_ROLE",
 "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_ENABLE" : "true",
