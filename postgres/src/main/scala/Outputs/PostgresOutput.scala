@@ -1,8 +1,7 @@
 package Outputs
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.SaveMode._
-
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
                           user: String, password: String) {
@@ -42,4 +41,5 @@ case class PostgresOutput(spark: SparkSession, url: String, tableName: String,
       .option("driver", "org.postgresql.Driver")
       .load()
   }
+
 }

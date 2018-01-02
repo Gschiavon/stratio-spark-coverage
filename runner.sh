@@ -4,15 +4,18 @@ mvn clean package
 
 mkdir server
 
-mv */target/*-allinone.jar server/
+cp */target/*-allinone.jar server/
 
 cp hdfs-stratio/* server/
 
 cd server
 
-rename 's/-[^.*]*(?=\.jar)//' *.*
+for file in *-allinone.jar
+do
+    mv "$file" "${file/-allinone.jar/.jar}"
+done
 
-python -m SimpleHTTPServer  &
+sudo python -m SimpleHTTPServer &
 
 cd ..
 source conf.sh

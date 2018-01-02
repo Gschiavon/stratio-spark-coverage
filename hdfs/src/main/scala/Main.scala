@@ -5,18 +5,17 @@ import org.apache.spark.sql.SparkSession
 object Main {
 
   def main(args: Array[String]): Unit = {
-
     val conf = new SparkConf().setAppName("hdfs-AT-job")
     val sc = new SparkContext(conf)
-
     val spark = SparkSession
       .builder()
       .getOrCreate()
 
     import spark.implicits._
+
     val hdfsPath = args(0)
     val hdfs = HDFSUtils(spark, hdfsPath)
-    val numbers = List(1,2,3,4,5,6,7,8,9,10)
+    val numbers = List("1","2","3","4","5","6","7","8","9","10")
     val df = spark.sparkContext.parallelize(numbers).toDF()
 
     println("Writing to HDFS a List of 10 numbers")
@@ -27,6 +26,5 @@ object Main {
 
     println(s"Checking if elements read are the same that elements written: $check")
   }
+
 }
-
-

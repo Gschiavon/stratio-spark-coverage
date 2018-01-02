@@ -1,39 +1,38 @@
 #!/bin/bash
 
-##COMMON CONF VARS
-SPARK_DISP_URL="https://megadev.labs.stratio.com/service/spark-fw/v1/submissions/create"
-COOKIE="COOKIE:COOKIE:COOKIE"
-SPARK_IMAGE="qa.stratio.com/stratio/stratio-spark:2.1.0.4"
-EXEC_CALICO_NETWORK="CALICO"
-DRIVER_CALICO_NETWORK="CALICO"
-VAULT_ROLE="VAULT-ROLE"
-MESOS_ROLE="MESOS-ROLE"
-MESOS_PRINCIPAL="PRINCIPAL"
-MESOS_SECRET="SECRET"
-HOST_PORT="HOST_IP:HOST_PORT"
-HDFS_FILES_HOST_PORT="HOST_IP:HOST_PORT"
+#COMMON CONF VARS
+SPARK_DISP_URL="https://<CLUSTER_ID>.labs.stratio.com/service/spark-fw/v1/submissions/create"
+COOKIE="Cookie: SSOID=s1; dcos-acs-auth-cookie=******; dcos-acs-info-cookie=******"
+SPARK_IMAGE="qa.stratio.com/stratio/stratio-spark:2.2.0.3"
+EXEC_CALICO_NETWORK="<CALICO_NETWORK>"
+DRIVER_CALICO_NETWORK="<CALICO_NETWORK>"
+VAULT_ROLE="<VAULT_ROLE>"
+MESOS_ROLE="<MESOS_ROLE>"
+HOST_PORT="<HDFS_HOST_IP>:<HDFS_HOST_PORT>"
+HDFS_FILES_HOST_PORT="<HDFS_FILES_HOST_IP>:<HDFS_FILES_HOST_PORT>"
+TEST_ARTIFACTS_VERSION="0.1.0-SNAPSHOT"
 
 #POSTGRES CONF VARS
-PG_HOST="pg_0001-postgrestls.service.paas.labs.stratio.com"
+PG_HOST="pg_0001-<POSTGRES_TLS_INSTANCE_NAME>.service.paas.labs.stratio.com"
 PG_PORT="5432"
-PG_JAR_URL="http://$HOST_PORT/postgres-0.1.0-SNAPSHOT-allinone.jar"
+PG_JAR_URL="http://$HOST_PORT/postgres-$TEST_ARTIFACTS_VERSION.jar"
 
-ELASTIC CONF VARS
-ES_HOST="coordinator-0-node.elasticsearchstratio-4.mesos"
+#ELASTICSEARCH CONF VARS
+ES_HOST="coordinator-0-node.<ELASTICSEARCH_INSTANCE_NAME>.mesos"
 ES_PORT="31504"
-ES_JAR_URL="http://$HOST_PORT/elastic-0.1.0-SNAPSHOT-allinone.jar"
+ES_JAR_URL="http://$HOST_PORT/elastic-$TEST_ARTIFACTS_VERSION.jar"
 
 #KAFKA CONF VARS
 KAFKA_BROKER_LIST="gosec1.node.paas.labs.stratio.com:9092"
 TOPIC="audit"
-KAFKA_JAR_URL="http://$HOST_PORT/kafka-0.1.0-SNAPSHOT-allinone.jar"
+KAFKA_JAR_URL="http://$HOST_PORT/kafka-$TEST_ARTIFACTS_VERSION.jar"
 
-##HDFS CONF VARS
+#HDFS CONF VARS
 HDFS_PATH="/spark/test"
 HDFS_CONF_URI="http://$HDFS_FILES_HOST_PORT"
-HDFS_JAR_URL="http://$HOST_PORT/hdfs-0.1.0-SNAPSHOT-allinone.jar"
+HDFS_JAR_URL="http://$HOST_PORT/hdfs-$TEST_ARTIFACTS_VERSION.jar"
 KERBEROS_VAULT_PATH="/v1/userland/kerberos/crossdata-1"
 
 ##STRUCTURED CONF VARS
 STRUCTURED_TOPIC="test"
-STRUCTURED_JAR_URL="http://$HOST_PORT/structured-streaming-0.1.0-SNAPSHOT-allinone.jar"
+STRUCTURED_JAR_URL="http://$HOST_PORT/structured-streaming-$TEST_ARTIFACTS_VERSION.jar"

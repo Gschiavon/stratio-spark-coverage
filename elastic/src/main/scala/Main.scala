@@ -1,19 +1,12 @@
-package com.stratio
-
 import org.apache.spark._
 import org.apache.spark.sql.SaveMode.Append
 import org.apache.spark.sql.SparkSession
-import org.elasticsearch.spark._
-
-
 
 object Main {
 
   def main(args: Array[String]): Unit = {
     val sparkConf = new SparkConf().setAppName("ElasticSearch_ATJob")
-
     val elasticOptions = extractElasticSecurityOption(args(0), args(1), sparkConf)
-
     val spark = SparkSession.builder().config(sparkConf).getOrCreate()
 
     import spark.implicits._
@@ -21,7 +14,6 @@ object Main {
     elasticOptions.foreach({
       case (key, value) => println(s"KEY: $key, VALUE: $value")
     })
-
 
     println("********* Writing **********")
     val dataset1 = spark.createDataset(List(1,2,3,4,5,6))
@@ -44,12 +36,10 @@ object Main {
   }
 
   def extractElasticSecurityOption(host: String, port: String, sparkConf: SparkConf): Map[String, String] = {
-
     val options = Map("es.index.auto.create" -> "true",
       "es.nodes"-> host,
       "es.resource" -> "test/type1",
       "es.port"-> port)
-
     val prefixSparkElastic = "spark.ssl.datastore."
     val prefixElasticSecurity = "es.net.ssl"
 
@@ -66,7 +56,5 @@ object Main {
       Map()
     }
   }
+
 }
-
-
-
