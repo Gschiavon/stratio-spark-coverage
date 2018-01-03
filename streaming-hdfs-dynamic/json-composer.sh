@@ -2,7 +2,7 @@
 
 source conf.sh
 
-cat << EOF > hdfs/body.json
+cat << EOF > streaming-hdfs-dynamic/body.json
 {
     "action": "CreateSubmissionRequest",
     "appArgs": ["$HDFS_PATH_FILE"],

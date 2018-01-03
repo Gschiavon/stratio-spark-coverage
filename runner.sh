@@ -40,6 +40,10 @@ echo "Running hdfs acceptance job"
 bash hdfs/json-composer.sh
 curl -k -XPOST -H "Cookie:${COOKIE}" -d @hdfs/body.json $SPARK_DISP_URL
 
+echo "Running hdfs dynamic acceptance job"
+bash streaming-hdfs-dynamic/json-composer.sh
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @streaming-hdfs-dynamic/body.json $SPARK_DISP_URL
+
 sleep 120
 
 rm -f */body.json
