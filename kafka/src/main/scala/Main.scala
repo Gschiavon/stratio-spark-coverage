@@ -8,7 +8,7 @@ import org.apache.spark.streaming._
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("spark-kafka")
+    val conf = new SparkConf().setAppName("AT-kafka")
     val ssc = new StreamingContext(conf, Seconds(1))
     val kafkaParams = Map[String, Object](
       "bootstrap.servers" -> args(0),

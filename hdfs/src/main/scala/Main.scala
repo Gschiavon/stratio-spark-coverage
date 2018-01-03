@@ -5,7 +5,7 @@ import org.apache.spark.sql.SparkSession
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("hdfs-AT-job")
+    val conf = new SparkConf().setAppName("AT-hdfs")
     val sc = new SparkContext(conf)
     val spark = SparkSession
       .builder()

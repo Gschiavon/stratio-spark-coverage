@@ -14,7 +14,7 @@ cat << EOF > hdfs/body.json
     "mainClass": "Main",
     "sparkProperties": {
         "spark.jars": "$HDFS_STREAMING_JAR_URL",
-        "spark.app.name": "AT-hdfs",
+        "spark.app.name": "AT-hdfs-dynamic",
         "spark.mesos.executor.docker.image": "$SPARK_IMAGE",
         "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro,/var/lib/spark_data:/tmp:rw,/etc/resolv.conf:/etc/resolv.conf:ro",
         "spark.driver.supervise": "false",
@@ -32,16 +32,15 @@ cat << EOF > hdfs/body.json
         "spark.mesos.driverEnv.VAULT_PORT": "8200",
 
         "spark.mesos.executor.docker.forcePullImage": "true",
-        "spark.dynamicAllocation.executorIdleTimeout" :	"2s",
-        "spark.shuffle.service.enabled" : "true",
-        "spark.dynamicAllocation.enabled" : "true",
+        "spark.dynamicAllocation.executorIdleTimeout":	"2s",
+        "spark.shuffle.service.enabled": "true",
+        "spark.dynamicAllocation.enabled": "true",
 
         "spark.submit.deployMode": "cluster",
         "spark.mesos.role": "$MESOS_ROLE",
         "spark.mesos.executor.home": "/opt/spark/dist",
         "spark.executor.cores": "1",
-        "spark.cores.max": "1",
-
+        "spark.cores.max": "1"
     }
 }
 EOF

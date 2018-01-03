@@ -14,7 +14,7 @@ cat << EOF > elastic/body.json
     "mainClass": "Main",
     "sparkProperties": {
         "spark.jars": "$ES_JAR_URL",
-        "spark.app.name": "AT-elastic",
+        "spark.app.name": "AT-elasticsearch",
         "spark.mesos.executor.docker.image": "$SPARK_IMAGE",
         "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro,/etc/resolv.conf:/etc/resolv.conf:ro",
         "spark.driver.supervise": "false",
@@ -23,15 +23,15 @@ cat << EOF > elastic/body.json
         "spark.mesos.driver.docker.network.name": "$DRIVER_CALICO_NETWORK",
 
         "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_ENABLE": "true",
-        "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_KEY_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
-        "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_CERT_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
         "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_CERT_PATH": "/v1/userland/certificates/elasticsearch",
+        "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_CERT_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
+        "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_KEY_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
         "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_TRUSTSTORE_PATH": "/v1/ca-trust/certificates/ca",
         "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_VAULT_TRUSTSTORE_PASS_PATH": "/v1/gosec/passwords/sso/sslkey",
         "spark.executorEnv.SPARK_SECURITY_DATASTORE_ENABLE": "true",
-        "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_KEY_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
-        "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_CERT_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
         "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_CERT_PATH": "/v1/userland/certificates/elasticsearch",
+        "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_CERT_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
+        "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_KEY_PASS_PATH": "/v1/userland/passwords/elasticsearchstratio-2/keystore",
         "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_TRUSTSTORE_PATH": "/v1/ca-trust/certificates/ca",
         "spark.executorEnv.SPARK_SECURITY_DATASTORE_VAULT_TRUSTSTORE_PASS_PATH": "/v1/gosec/passwords/sso/sslkey",
 

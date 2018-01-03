@@ -6,7 +6,7 @@ object Main {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder()
-      .appName("Postgres_ATJob")
+      .appName("AT-postgres")
       .getOrCreate()
 
     import spark.implicits._

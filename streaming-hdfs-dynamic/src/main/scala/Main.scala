@@ -8,8 +8,7 @@ import scala.collection.mutable
 object Main {
 
   def main(args: Array[String]): Unit = {
-
-    val sparkConf = new SparkConf().setAppName("Shuffle")
+    val sparkConf = new SparkConf().setAppName("AT-hdfs-dynamic")
     val ssc = new StreamingContext(sparkConf, Seconds(4))
     val spark = SparkSession
       .builder()
@@ -23,12 +22,15 @@ object Main {
       .groupByKey()
 
     val rddQueue: mutable.Queue[RDD[(String, Iterable[Int])]] = mutable.Queue()
+
     rddQueue += wordsRDD
+
     val dstream = ssc.queueStream(rddQueue)
+
     dstream.print
 
     ssc.start()
     ssc.awaitTermination()
-
   }
+
 }

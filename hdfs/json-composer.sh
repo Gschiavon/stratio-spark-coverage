@@ -31,7 +31,6 @@ cat << EOF > hdfs/body.json
         "spark.mesos.driverEnv.VAULT_HOSTS": "vault.service.paas.labs.stratio.com",
         "spark.mesos.driverEnv.VAULT_PORT": "8200",
 
-
         "spark.submit.deployMode": "cluster",
         "spark.mesos.role": "$MESOS_ROLE",
         "spark.mesos.executor.home": "/opt/spark/dist",
@@ -39,7 +38,7 @@ cat << EOF > hdfs/body.json
         "spark.cores.max": "1",
 
         "spark.eventLog.enabled": true,
-        "spark.eventLog.dir": "hdfs://10.200.0.74:8020/tmp/logs/history"
+        "spark.eventLog.dir": "$HDFS_STRATIO/tmp/logs/history"
     }
 }
 EOF
