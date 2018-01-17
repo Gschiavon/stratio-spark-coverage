@@ -22,27 +22,27 @@ source conf.sh
 
 echo "Running postgres acceptance job"
 bash postgres/json-composer.sh
-curl -k -XPOST -H "Cookie:${COOKIE}" -d @postgres/body.json $SPARK_DISP_URL
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @postgres/body.json $SPARK_DISPATCHER_URL
 
 echo "Running structured streaming acceptance job"
 bash structured-streaming/json-composer.sh
-curl -k -XPOST -H "Cookie:${COOKIE}" -d @structured-streaming/body.json $SPARK_DISP_URL
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @structured-streaming/body.json $SPARK_DISPATCHER_URL
 
 echo "Running elastic acceptance job"
 bash elastic/json-composer.sh
-curl -k -XPOST -H "Cookie:${COOKIE}" -d @elastic/body.json $SPARK_DISP_URL
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @elastic/body.json $SPARK_DISPATCHER_URL
 
 echo "Running kafka acceptance job"
 bash kafka/json-composer.sh
-curl -k -XPOST -H "Cookie:${COOKIE}" -d @kafka/body.json $SPARK_DISP_URL
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @kafka/body.json $SPARK_DISPATCHER_URL
 
 echo "Running hdfs acceptance job"
 bash hdfs/json-composer.sh
-curl -k -XPOST -H "Cookie:${COOKIE}" -d @hdfs/body.json $SPARK_DISP_URL
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @hdfs/body.json $SPARK_DISPATCHER_URL
 
 echo "Running hdfs dynamic acceptance job"
 bash streaming-hdfs-dynamic/json-composer.sh
-curl -k -XPOST -H "Cookie:${COOKIE}" -d @streaming-hdfs-dynamic/body.json $SPARK_DISP_URL
+curl -k -XPOST -H "Cookie:${COOKIE}" -d @streaming-hdfs-dynamic/body.json $SPARK_DISPATCHER_URL
 
 sleep 120
 

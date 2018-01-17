@@ -5,7 +5,7 @@ source conf.sh
 cat << EOF > kafka/body.json
 {
     "action": "CreateSubmissionRequest",
-    "appArgs": ["$KAFKA_BROKER_LIST", "$TOPIC"],
+    "appArgs": ["$KAFKA_BROKER_LIST", "$KAFKA_TOPIC"],
     "appResource": "$KAFKA_JAR_URL",
     "clientSparkVersion": "2.2.0",
     "environmentVariables": {
@@ -19,7 +19,7 @@ cat << EOF > kafka/body.json
         "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro,/etc/resolv.conf:/etc/resolv.conf:ro",
         "spark.driver.supervise": "false",
         "spark.secret.vault.role": "$VAULT_ROLE",
-        "spark.mesos.executor.docker.network.name": "$EXEC_CALICO_NETWORK",
+        "spark.mesos.executor.docker.network.name": "$EXECUTOR_CALICO_NETWORK",
         "spark.mesos.driver.docker.network.name": "$DRIVER_CALICO_NETWORK",
 
         "spark.mesos.driverEnv.SPARK_SECURITY_DATASTORE_ENABLE": "true",

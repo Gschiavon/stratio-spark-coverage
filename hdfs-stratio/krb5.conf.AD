@@ -1,5 +1,5 @@
 [libdefaults]
- default_realm = PNF.STRATIO.COM
+ default_realm = STRATIO.TEST
  dns_lookup_realm = false
  dns_lookup_kdc = false
  rdns = false
@@ -10,11 +10,11 @@
  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
 
 [realms]
- PNF.STRATIO.COM = {
-   kdc = pnf.stratio.com
-   admin_server = pnf.stratio.com
+ STRATIO.TEST = {
+   kdc = activedirectory.stratio.test
+   admin_server = activedirectory.stratio.test
  }
 
 [domain_realm]
- .pnf.stratio.com = PNF.STRATIO.COM
- pnf.stratio.com = PNF.STRATIO.COM
+ .stratio.test = STRATIO.TEST
+ stratio.test = STRATIO.TEST

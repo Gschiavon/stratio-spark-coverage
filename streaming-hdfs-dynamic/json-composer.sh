@@ -19,7 +19,7 @@ cat << EOF > streaming-hdfs-dynamic/body.json
         "spark.mesos.executor.docker.volumes": "/etc/pki/ca-trust/extracted/java/cacerts/:/usr/lib/jvm/jre1.8.0_112/lib/security/cacerts:ro,/var/lib/spark_data:/tmp:rw,/etc/resolv.conf:/etc/resolv.conf:ro",
         "spark.driver.supervise": "false",
         "spark.secret.vault.role": "$VAULT_ROLE",
-        "spark.mesos.executor.docker.network.name": "$EXEC_CALICO_NETWORK",
+        "spark.mesos.executor.docker.network.name": "$EXECUTOR_CALICO_NETWORK",
         "spark.mesos.driver.docker.network.name": "$DRIVER_CALICO_NETWORK",
 
         "spark.mesos.driverEnv.SPARK_SECURITY_HDFS_ENABLE": "true",
