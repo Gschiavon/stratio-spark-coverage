@@ -1,4 +1,4 @@
-FROM nginx:1.13.8
+FROM qa.stratio.com/nginx:1.10.3-alpine
 MAINTAINER Stratio Spark team "spark@stratio.com"
 
 ARG VERSION
