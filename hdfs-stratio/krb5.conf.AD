@@ -1,0 +1,20 @@
+[libdefaults]
+ default_realm = STRATIO.TEST
+ dns_lookup_realm = false
+ dns_lookup_kdc = false
+ rdns = false
+ ticket_lifetime = 24h
+ renew_lifetime = 7d
+ forwardable = true
+ proxiable = true
+ default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+
+[realms]
+ STRATIO.TEST = {
+   kdc = activedirectory.stratio.test
+   admin_server = activedirectory.stratio.test
+ }
+
+[domain_realm]
+ .stratio.test = STRATIO.TEST
+ stratio.test = STRATIO.TEST

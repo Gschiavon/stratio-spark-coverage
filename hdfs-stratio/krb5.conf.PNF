@@ -1,0 +1,20 @@
+[libdefaults]
+ default_realm = PNF.STRATIO.COM
+ dns_lookup_realm = false
+ dns_lookup_kdc = false
+ rdns = false
+ ticket_lifetime = 24h
+ renew_lifetime = 7d
+ forwardable = true
+ proxiable = true
+ default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+
+[realms]
+ PNF.STRATIO.COM = {
+   kdc = pnf.stratio.com
+   admin_server = pnf.stratio.com
+ }
+
+[domain_realm]
+ .pnf.stratio.com = PNF.STRATIO.COM
+ pnf.stratio.com = PNF.STRATIO.COM

@@ -9,9 +9,6 @@ hose {
     RELEASETIMEOUT = 200
 
     PKGMODULESNAMES = ['stratio-spark-coverage']
-    DEBARCH = 'all'
-    RPMARCH = 'noarch'
-    DOCKERHUBPUSH = false
 
     DEV = { config ->
 

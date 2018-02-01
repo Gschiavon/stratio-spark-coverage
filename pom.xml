@@ -21,7 +21,7 @@
     </licenses>
     <properties>
         <maven.version>3.3.9</maven.version>
-        <spark.version>2.1.0</spark.version>
+        <spark.version>2.2.0</spark.version>
     </properties>
 
     <prerequisites>
@@ -32,9 +32,15 @@
         <module>kafka</module>
         <module>postgres</module>
         <module>hdfs</module>
+        <module>streaming-hdfs-dynamic</module>
         <module>structured-streaming</module>
     </modules>
     <dependencies>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.11</artifactId>

@@ -3,7 +3,6 @@ package Outputs
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.SaveMode._
 
-
 case class HDFSUtils(spark: SparkSession, hdfsPath: String) {
 
   def saveToHDFS(dataFrame: DataFrame): String = {
@@ -16,4 +15,5 @@ case class HDFSUtils(spark: SparkSession, hdfsPath: String) {
       .save()
     value
   }
+
 }
