@@ -32,6 +32,7 @@
         <module>kafka</module>
         <module>postgres</module>
         <module>hdfs</module>
+        <module>structured-streaming</module>
     </modules>
     <dependencies>
         <dependency>
