@@ -5,6 +5,7 @@ ARG VERSION
 
 #Enable folders listing
 RUN sed -i '/index.htm;/a autoindex on;' /etc/nginx/conf.d/default.conf
+RUN sed -i 's/listen.*/listen 9000/g' /etc/nginx/conf.d/default.conf
 
 RUN mkdir -p /usr/share/nginx/html/jobs
 
