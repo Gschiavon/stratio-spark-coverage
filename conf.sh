@@ -13,6 +13,7 @@ FILES_HTTP_SERVER="http://<HOST_IP>:8000" ## IP desde dónde se sirven los fiche
 KERBEROS_VAULT_PATH="/v1/userland/kerberos/crossdata-1"
 HDFS_STRATIO="hdfs://<HDFS_STRATIO_URL>:<HDFS_STRATIO_PORT>" ## NORMAL --> hdfs://10.200.0.74:8020 || PNF y ActiveDirectory --> hdfs://stratio:8020
 TEST_ARTIFACTS_VERSION="0.1.0-SNAPSHOT"
+MESOS_VAULT_PATH="<MESOS_VAULT_PATH>" #v1/userland/passwords/spark-fw/mesos Este path se usará para recuperar el secret y el principal
 
 
 #POSTGRES CONF VARS

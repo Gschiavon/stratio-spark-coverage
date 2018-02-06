@@ -36,6 +36,9 @@ cat << EOF > streaming-hdfs-dynamic/body.json
         "spark.shuffle.service.enabled": "true",
         "spark.dynamicAllocation.enabled": "true",
 
+        "spark.mesos.driverEnv.SPARK_SECURITY_MESOS_ENABLE" : "true",
+        "spark.mesos.driverEnv.SPARK_SECURITY_MESOS_VAULT_PATH" : "$MESOS_VAULT_PATH",
+
         "spark.submit.deployMode": "cluster",
         "spark.mesos.role": "$MESOS_ROLE",
         "spark.mesos.executor.home": "/opt/spark/dist",
