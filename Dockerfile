@@ -17,12 +17,22 @@ COPY streaming-hdfs-dynamic/target/streaming-hdfs-dynamic-${VERSION}-allinone.ja
 COPY structured-streaming/target/structured-streaming-${VERSION}-allinone.jar /usr/share/nginx/html/jobs/structured-streaming-${VERSION}.jar
 
 RUN mkdir -p /usr/share/nginx/html/configs/
+
+#Megadev
 RUN mkdir -p /usr/share/nginx/html/configs/megadev
 
 COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/megadev/core-site.xml
 COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/megadev/hdfs-site.xml
 COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/megadev/krb5.conf
 
+#Newcore
+RUN mkdir -p /usr/share/nginx/html/configs/newcore
+
+COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/newcore/core-site.xml
+COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/newcore/hdfs-site.xml
+COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/newcore/krb5.conf
+
+#PNG
 RUN mkdir -p /usr/share/nginx/html/configs/pnf
 
 COPY hdfs-stratio/core-site.xml.PNF /usr/share/nginx/html/configs/pnf/core-site.xml
