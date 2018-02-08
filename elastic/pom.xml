@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch-spark-20_2.11</artifactId>
-            <version>5.5.0</version>
+            <version>6.2.0</version>
         </dependency>
     </dependencies>
 
