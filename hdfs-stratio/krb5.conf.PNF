@@ -11,8 +11,8 @@
 
 [realms]
  PNF.STRATIO.COM = {
-   kdc = pnf.stratio.com
-   admin_server = pnf.stratio.com
+   kdc = capsaicina01.labs.stratio.com
+   admin_server = capsaicina01.labs.stratio.com
  }
 
 [domain_realm]
