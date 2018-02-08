@@ -3,7 +3,7 @@
 #COMMON CONF VARS
 SPARK_DISPATCHER_URL="https://<CLUSTER_ID>.labs.stratio.com/service/spark-fw/v1/submissions/create"
 COOKIE="Cookie: SSOID=s1; dcos-acs-auth-cookie=******; dcos-acs-info-cookie=******"
-SPARK_IMAGE="qa.stratio.com/stratio/stratio-spark:2.2.0.4"
+SPARK_IMAGE="qa.stratio.com/stratio/stratio-spark:2.2.0.5-RC2"
 INTERNAL_DOMAIN="<INTERNAL_DOMAIN>" ## LDAP+Kerberos --> paas.labs.stratio.com || ActiveDirectory --> paas.stratio.test
 EXECUTOR_CALICO_NETWORK="<CALICO_NETWORK>" ## stratio
 DRIVER_CALICO_NETWORK="<CALICO_NETWORK>" ## stratio
