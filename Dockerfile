@@ -32,11 +32,39 @@ COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/newcore/core-site.
 COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/newcore/hdfs-site.xml
 COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/newcore/krb5.conf
 
-#PNG
-RUN mkdir -p /usr/share/nginx/html/configs/pnf
+#Nightly
+RUN mkdir -p /usr/share/nginx/html/configs/nightly
 
-COPY hdfs-stratio/core-site.xml.PNF /usr/share/nginx/html/configs/pnf/core-site.xml
-COPY hdfs-stratio/hdfs-site.xml.PNF /usr/share/nginx/html/configs/pnf/hdfs-site.xml
-COPY hdfs-stratio/krb5.conf.PNF /usr/share/nginx/html/configs/pnf/krb5.conf
+COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/nightly/core-site.xml
+COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/nightly/hdfs-site.xml
+COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/nightly/krb5.conf
+
+#Integración/aceptación
+RUN mkdir -p /usr/share/nginx/html/configs/intbootstrap
+
+COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/intbootstrap/core-site.xml
+COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/intbootstrap/hdfs-site.xml
+COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/intbootstrap/krb5.conf
+
+#Backup&Restore
+RUN mkdir -p /usr/share/nginx/html/configs/bar
+
+COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/bar/core-site.xml
+COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/bar/hdfs-site.xml
+COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/bar/krb5.conf
+
+#Pool1
+RUN mkdir -p /usr/share/nginx/html/configs/pool1
+
+COPY hdfs-stratio/core-site.xml /usr/share/nginx/html/configs/pool1/core-site.xml
+COPY hdfs-stratio/hdfs-site.xml /usr/share/nginx/html/configs/pool1/hdfs-site.xml
+COPY hdfs-stratio/krb5.conf /usr/share/nginx/html/configs/pool1/krb5.conf
+
+#PNF
+RUN mkdir -p /usr/share/nginx/html/configs/fulle1
+
+COPY hdfs-stratio/core-site.xml.PNF /usr/share/nginx/html/configs/fulle1/core-site.xml
+COPY hdfs-stratio/hdfs-site.xml.PNF /usr/share/nginx/html/configs/fulle1/hdfs-site.xml
+COPY hdfs-stratio/krb5.conf.PNF /usr/share/nginx/html/configs/fulle1/krb5.conf
 
 #TODO NIGHTLY
