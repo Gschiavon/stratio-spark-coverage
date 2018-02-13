@@ -38,7 +38,7 @@ cat << EOT | tee -a $dir/test-runner.sh > /dev/null
 #!/bin/bash
 
 #cd server
-#sudo python -m SimpleHTTPServer &
+#sudo python -m SimpleHTTPServer 6666 &
 #cd ..
 source conf.sh
 
@@ -179,6 +179,6 @@ EOT
 ### Lanzar toda la ejecución
 
 cd "$dir/server"
-sudo python -m SimpleHTTPServer &
+sudo python -m SimpleHTTPServer 6666 &
 cd ..
 bash "$dir/test-launcher.sh"
