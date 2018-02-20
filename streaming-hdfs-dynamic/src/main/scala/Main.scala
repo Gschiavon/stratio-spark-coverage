@@ -9,25 +9,18 @@ object Main {
 
   def main(args: Array[String]): Unit = {
     val sparkConf = new SparkConf().setAppName("AT-hdfs-dynamic")
-    val ssc = new StreamingContext(sparkConf, Seconds(4))
+    val ssc = new StreamingContext(sparkConf, Seconds(20))
     val spark = SparkSession
       .builder()
       .config(sparkConf)
       .getOrCreate()
 
-    val rdd  = spark.sparkContext.textFile(args(0))
-    val wordsRDD = rdd
+    val dstream = ssc.textFileStream(args(0))
       .flatMap(_.split(" "))
       .map(word => (word, 1))
       .groupByKey()
 
-    val rddQueue: mutable.Queue[RDD[(String, Iterable[Int])]] = mutable.Queue()
-
-    rddQueue += wordsRDD
-
-    val dstream = ssc.queueStream(rddQueue)
-
-    dstream.print
+    dstream.foreachRDD(rdd => println(s"****** Imprimiendo RDD ${rdd.collect.mkString(",")}"))
 
     ssc.start()
     ssc.awaitTermination()

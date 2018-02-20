@@ -26,9 +26,9 @@ object Main {
 
     stream.map(record => (record.key, record.value))
 
-    stream.foreachRDD(rdd =>
-    println(s"*************###########*******************${rdd.count}*************##########*******************")
-    )
+    stream.foreachRDD(rdd => println(s"*************###########*******************" +
+      s"${rdd.map(_.key()).collect().size}*************##########*******************"))
+
     ssc.start()
     ssc.awaitTermination()
   }
